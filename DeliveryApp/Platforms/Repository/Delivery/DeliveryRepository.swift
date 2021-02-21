@@ -33,7 +33,10 @@ class DeliveryRepository: DeliveryRepositoriable {
                 
             } else {
                 
-                self.apiDeliveryService.fetchDeliveryList(offset: offset).subscribe { [weak self] (result) in
+                self.apiDeliveryService
+                    .fetchDeliveryList(offset: offset)
+                    .subscribe { [weak self] (result) in
+                        
                     switch result.element {
                     case .success(let value):
                         self?.storgeDeliveryService.saveDeliveryList(items: value)
@@ -44,7 +47,8 @@ class DeliveryRepository: DeliveryRepositoriable {
                         
                     default: break
                     }
-                }.disposed(by: self.bag)
+                }
+                    .disposed(by: self.bag)
             }
             
             return Disposables.create()

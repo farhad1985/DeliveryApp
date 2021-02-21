@@ -6,28 +6,37 @@
 //
 
 import XCTest
+
 @testable import DeliveryApp
 
 class DeliveryAppTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testRouteDeliveryList() {
+        let route = Router.deliveryList(offset: 1, limit: 20)
+        XCTAssertEqual(route.url, "https://mock-api-mobile.dev.lalamove.com/v2/deliveries/?offset=1&limit=20")
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testDeliverFee() {
+        var deliverItem = DeliverItem()
+        deliverItem.deliveryFee = "$1"
+        deliverItem.surcharge = "$2"
+        
+        XCTAssertTrue(deliverItem.fee == "3.00")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testDeliverFeeWithFractional() {
+        var deliverItem = DeliverItem()
+        deliverItem.deliveryFee = "$1.1"
+        deliverItem.surcharge = "$2.01"
+        
+        XCTAssertTrue(deliverItem.fee == "3.11")
     }
+    
+    func testDeliverFeeWithFractional2() {
+        var deliverItem = DeliverItem()
+        deliverItem.deliveryFee = "$1.1000"
+        deliverItem.surcharge = "$2.0122"
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertTrue(deliverItem.fee == "3.11")
     }
-
 }

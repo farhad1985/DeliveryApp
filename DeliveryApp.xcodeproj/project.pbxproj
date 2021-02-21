@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83D5CBA8EAB7E860167B09AB /* Pods_DeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BE723DF7FA945E18146713 /* Pods_DeliveryApp.framework */; };
 		83F2541957893A3D698E740B /* Pods_DeliveryApp_DeliveryAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204089729DD83339F705E652 /* Pods_DeliveryApp_DeliveryAppUITests.framework */; };
+		C42AB0E425E2C2E300E44A7D /* DeliveryStorgeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42AB0E325E2C2E300E44A7D /* DeliveryStorgeServiceTest.swift */; };
 		C42F76F325DED79800F12A53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42F76F225DED79800F12A53 /* AppDelegate.swift */; };
 		C42F76F525DED79800F12A53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42F76F425DED79800F12A53 /* SceneDelegate.swift */; };
 		C42F76FC25DED79C00F12A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C42F76FB25DED79C00F12A53 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		8A5EEAA3E97EBDE8BA60BC58 /* Pods-DeliveryApp-DeliveryAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp-DeliveryAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryApp-DeliveryAppUITests/Pods-DeliveryApp-DeliveryAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C8B4159B4E758BDE0905BD6 /* Pods-DeliveryApp-DeliveryAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp-DeliveryAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DeliveryApp-DeliveryAppUITests/Pods-DeliveryApp-DeliveryAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2BE723DF7FA945E18146713 /* Pods_DeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42AB0E325E2C2E300E44A7D /* DeliveryStorgeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryStorgeServiceTest.swift; sourceTree = "<group>"; };
 		C42F76EF25DED79800F12A53 /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42F76F225DED79800F12A53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C42F76F425DED79800F12A53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C42F770925DED79C00F12A53 /* DeliveryAppTests.swift */,
+				C42AB0E325E2C2E300E44A7D /* DeliveryStorgeServiceTest.swift */,
 				C42F770B25DED79C00F12A53 /* Info.plist */,
 			);
 			path = DeliveryAppTests;
@@ -821,6 +824,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42AB0E425E2C2E300E44A7D /* DeliveryStorgeServiceTest.swift in Sources */,
 				C42F770A25DED79C00F12A53 /* DeliveryAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
