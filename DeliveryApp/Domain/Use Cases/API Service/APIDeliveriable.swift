@@ -9,5 +9,5 @@ import RxSwift
 
 protocol APIDeliveriable {
     
-    func fetchDeliveryList(offset: Int) -> Observable<ResultReponse<[DeliverItem]>>
+    func fetchDeliveryList(offset: Int) -> Observable<Result<[DeliverItem], DeliveryError>>
 }

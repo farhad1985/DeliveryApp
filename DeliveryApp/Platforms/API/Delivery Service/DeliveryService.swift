@@ -12,9 +12,9 @@ import ObjectMapper
 
 class DeliveryService: APIDeliveriable {
         
-    func fetchDeliveryList(offset: Int) -> Observable<ResultReponse<[DeliverItem]>>{
+    func fetchDeliveryList(offset: Int) -> Observable<Result<[DeliverItem], DeliveryError>>{
         
-        let onChange = PublishSubject<ResultReponse<[DeliverItem]>>()
+        let onChange = PublishSubject<Result<[DeliverItem], DeliveryError>>()
         
         let route = Router.deliveryList(offset: offset, limit: 20)
         
@@ -27,10 +27,10 @@ class DeliveryService: APIDeliveriable {
                     
                     let data = Mapper<DeliverItem>().mapArray(JSONObject: value)
                     
-                    onChange.onNext(ResultReponse.success(value: data ?? []))
+                    onChange.onNext(.success(data ?? []))
 
                 case .failure:
-                    onChange.onNext(ResultReponse.failure(error: .unknown))
+                    onChange.onNext(.failure(DeliveryError.unknown))
                 }
 
             }

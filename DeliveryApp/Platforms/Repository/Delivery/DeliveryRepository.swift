@@ -21,15 +21,15 @@ class DeliveryRepository: DeliveryRepositoriable {
         self.storgeDeliveryService = storgeDeliveryService
     }
     
-    func fetchDeliveryList(offset: Int) -> Observable<ResultReponse<[DeliverItem]>> {
+    func fetchDeliveryList(offset: Int) -> Observable<Result<[DeliverItem], DeliveryError>> {
         
-        return Observable<ResultReponse<[DeliverItem]>>.create { observer in
+        return Observable<Result<[DeliverItem], DeliveryError>>.create { observer in
             
             let db = self.storgeDeliveryService.getDeliveryList()
             let count = db.count
             
             if count > 0 && offset * 20 <= count{
-                observer.onNext(ResultReponse.success(value: db))
+                observer.onNext(.success(db))
                 
             } else {
                 
@@ -40,15 +40,14 @@ class DeliveryRepository: DeliveryRepositoriable {
                     switch result.element {
                     case .success(let value):
                         self?.storgeDeliveryService.saveDeliveryList(items: value)
-                        observer.onNext(ResultReponse.success(value: value))
+                        observer.onNext(.success(value))
                         
                     case .failure(let error):
-                        observer.onNext(ResultReponse.failure(error: error))
+                        observer.onNext(.failure(error))
                         
                     default: break
                     }
-                }
-                    .disposed(by: self.bag)
+                }.disposed(by: self.bag)
             }
             
             return Disposables.create()
