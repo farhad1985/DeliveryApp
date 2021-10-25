@@ -9,9 +9,9 @@ import RxSwift
 
 protocol DeliveryRepositoriable {
     
-    func fetchDeliveryList(offset: Int) -> Observable<ResultReponse<[DeliverItem]>>
+    func fetchDeliveryList(offset: Int) -> Observable<Result<[DeliverItem], DeliveryError>>
     
     func removeAll()
     
-    func setFavorite(item: DeliverItem) 
+    func setFavorite(item: DeliverItem)
 }
